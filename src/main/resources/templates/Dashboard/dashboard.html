@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{Dashboard/base::Layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="container">
+    <ul class="UnList">
+        <li class="list" th:each="headline : ${newsHeadlines}" th:if="${headline.title != '[Removed]' and headline.description != '[Removed]'}">
+            <h3 class="heading" th:text="${headline.title}"></h3>
+            <p class="paragraph" th:text="${headline.description}"></p>
+            <img class="thumbnail" th:if="${headline.imgUrl != null}" th:src="${headline.imgUrl}" alt="Image">
+<!--            <p><a th:href="${headline.url}" target="_blank">Read more</a></p>-->
+        </li>
+    </ul>
+</section>
+</body>
+</html>
